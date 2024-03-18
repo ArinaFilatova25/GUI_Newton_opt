@@ -36,7 +36,7 @@ FORMS += \
     mainwindow.ui
 
 INCLUDEPATH += \
-    ./myeigen
+    ./eigen
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
