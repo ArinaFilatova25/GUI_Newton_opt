@@ -4,16 +4,16 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-    , eps(0.001)
-    , max_num_of_iter(100)
-    , p(0.4)
-    , delta(0.6)
-    , alpha(0.3)
-    , box(2)
-    , x_0(2)
     , f(new Function1())
+    , x_0(2)
+    , box(2)
     , optimization_method(new Newton_opt())
     , stop_criterion(new Criterion_grad_f())
+    , eps(0.001)
+    , max_num_of_iter(100)
+    , alpha(0.3)
+    , delta(0.6)
+    , p(0.4)
     , scene(nullptr)
 {
     x_0 = {0, 0};
@@ -24,10 +24,10 @@ MainWindow::MainWindow(QWidget *parent)
     setWindowTitle("Opimization");
     this->setFixedSize(800, 600);
 
-    ui->func_min->setVisible(false);
-    ui->min_point->setVisible(false);
-    ui->num_iter->setVisible(false);
-    ui->start_point->setVisible(false);
+    //ui->func_min->setVisible(false);
+    //ui->min_point->setVisible(false);
+    //ui->num_iter->setVisible(false);
+    //ui->start_point->setVisible(false);
 
     ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -35,6 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&dial, &Dialog::accepted, this, &MainWindow::draw_function);
     connect(scene, &OptimizationScene::sceneClicked, this, &MainWindow::on_sceneClicked);
 
+    on_actionVisualization_triggered(dial.get_start_point());
 }
 
 MainWindow::~MainWindow()
@@ -276,10 +277,10 @@ void MainWindow::on_actionVisualization_triggered(const std::vector<double> &sta
     QString text_num_iter = "Количество итераций: " + QString::number(num_iterations);
     QString text_start_point = "Начальная точка: " + QString("(%1, %2)").arg(start_point[0]).arg(start_point[1]);
 
-    ui->func_min->setVisible(true);
-    ui->min_point->setVisible(true);
-    ui->num_iter->setVisible(true);
-    ui->start_point->setVisible(true);
+    //ui->func_min->setVisible(true);
+    //ui->min_point->setVisible(true);
+    //ui->num_iter->setVisible(true);
+    //ui->start_point->setVisible(true);
 
     ui->func_min->setText(text_func_min);
     ui->min_point->setText(text_min_point);

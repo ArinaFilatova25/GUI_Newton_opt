@@ -1,13 +1,13 @@
 #pragma once
-#include "Function.h"
-#include "Area.h"
-#include "Stop_criterion.h"
-#include "Optimization_method.h"
 #include <iostream>
 #include <vector>
 #include <random>
 #include <chrono>
 #include <sstream>
+#include "Function.h"
+#include "Area.h"
+#include "Stop_criterion.h"
+#include "Optimization_method.h"
 
 class Random_search :
     public Optimization_method

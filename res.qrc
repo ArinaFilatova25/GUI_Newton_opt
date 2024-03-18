@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/sett">
+        <file>set.jpg</file>
+    </qresource>
+</RCC>

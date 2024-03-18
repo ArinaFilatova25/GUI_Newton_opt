@@ -4,13 +4,13 @@
 Dialog::Dialog(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Dialog)
+    , x_0(2)
+    , box(2)
     , eps(0.001)
     , max_num_of_iter(100)
-    , p(0.4)
-    , delta(0.6)
     , alpha(0.3)
-    , box(2)
-    , x_0(2)
+    , delta(0.6)
+    , p(0.4)
 {
     x_0 = {0, 0};
     box = {{-2, 4}, {-2, 4}};

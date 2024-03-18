@@ -17,7 +17,7 @@ bool Area::is_inside(std::vector<double> x) const {
     if (x.size() != box.size()) 
         return false;
 
-    for (int i = 0; i < x.size(); ++i) {
+    for (size_t i = 0; i < x.size(); ++i) {
         if (x[i] > box[i].second || x[i] < box[i].first) 
             return false;
     }
